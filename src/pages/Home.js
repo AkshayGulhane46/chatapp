@@ -1,12 +1,11 @@
-import './App.css';
-import Login from './Login';
 import Register from './Register';
-import "./style.scss"
+import Login from './Login';
 
 function App() {
   return (
     <>
-    <Login/>
+    <Register/>
+    
    
     </>
     );

@@ -1,6 +1,7 @@
 
 import React from 'react'
-import add from "../img/add.png"
+
+
 function Login() {
   return (
     <>

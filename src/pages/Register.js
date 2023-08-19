@@ -19,8 +19,8 @@ function Register() {
                 
                 <input style={{display:"none"}} type="file" id="file"/>
                 <label  htmlFor="file" > 
-                <img src={add}/>  
-                <span> Add your Image </span>              </label>
+                <img src={add}/>
+                <span> Add your Image </span> </label>
                 <button>Sign Up</button>
 
 
