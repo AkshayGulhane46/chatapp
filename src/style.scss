@@ -69,3 +69,88 @@
     }
 
 }
+
+.home{
+    background-color: beige;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .container{
+        border: 1px solid black;
+        width: 65%;
+        height: 50%;
+        border-radius: 5px;
+        display: flex;
+        overflow: hidden;
+    }
+
+    .sidebar{
+        flex: 1;
+        border-right: 1px solid black;
+        background-color: yellow;
+
+        .search{
+            border-bottom: 1px solid grey;
+        }
+        .searchForm{
+            padding: 10px;
+            input{
+                background-color: transparent;
+                border: none;
+                color: white;
+            }
+        }
+
+        .userChat{
+            img{
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+        }
+
+        .navbar{
+            display: flex;
+            background-color: lightcoral;
+            padding: 10px;
+            height: 50px;
+            justify-content: space-between;
+        }
+
+        .logo{
+            font-weight: bold;
+        }
+
+        .user{
+            display: flex;
+            gap: 10px;
+
+            img{
+                background-color: green;
+                height: 24px;
+                width: 24px;
+                border-radius: 50%;
+                object-fit: cover;
+            }
+
+            button{
+                background-color: red;
+                font-weight: bold;
+                border: none;
+                cursor: pointer;
+                color: white;
+
+            }
+        }
+
+  
+    }
+
+    .chat{
+        flex:2;
+    }
+
+}
