@@ -93,22 +93,44 @@
 
         .search{
             border-bottom: 1px solid grey;
+            .searchForm{
+                padding: 10px;
+                input{
+                    background-color: transparent;
+                    border: none;
+                    color: white;
+                    outline: none;
+
+                    &::placeholder{
+                        color: lightgray;
+                    }
+                }
         }
-        .searchForm{
-            padding: 10px;
-            input{
-                background-color: transparent;
-                border: none;
-                color: white;
-            }
         }
 
         .userChat{
+            padding: 10px;
+            display: flex;
+            align-items:center;
+            gap: 10px;
+            color: white;
+            cursor: pointer;
+
+            &::hover{
+                background-color: green($color: #000000)
+            }
+
             img{
                 width: 50px;
                 height: 50px;
                 border-radius: 50%;
                 object-fit: cover;
+            }
+
+            .userChatInfo{
+                span{font-size: 18px;
+                font-weight: bolder;}
+                p{font-size: 14px; color: lightgray;}
             }
         }
 
@@ -151,6 +173,21 @@
 
     .chat{
         flex:2;
-    }
+        .chatInfo{
+            height: 50px;
+            background-color: blue;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+            color: lightgrey;
+        }
 
+        .chatIcons{
+          display: flex;
+          gap: 10px;
+         cursor: pointer;
+        }
+    
+    }
 }
