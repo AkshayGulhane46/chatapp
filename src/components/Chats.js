@@ -3,7 +3,13 @@ import React from 'react'
 const Chats = () => {
   return (
     <div className='chats'>
-        Chats
+      <div className='userChat'>
+        <img src='' alt='image'/>
+        <div className='userChatInfo'>
+          <span>joggny</span>
+          <p> Gello </p>
+        </div>
+      </div>
     </div>
   )
 }

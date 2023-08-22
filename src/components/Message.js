@@ -9,4 +9,3 @@ const Message = () => {
 }
 
 export default Message
-Message

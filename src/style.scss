@@ -93,14 +93,14 @@
 
         .search{
             border-bottom: 1px solid grey;
-            .searchForm{
+            .searchform{
                 padding: 10px;
                 input{
                     background-color: transparent;
                     border: none;
                     color: white;
                     outline: none;
-
+                    border-bottom: 1px solid black;
                     &::placeholder{
                         color: lightgray;
                     }
@@ -187,7 +187,25 @@
           display: flex;
           gap: 10px;
          cursor: pointer;
+
+         img{
+            height: 24px;
+            cursor: pointer;
         }
-    
+        }
+        .messages{
+            background-color: lightblue;
+            padding: 10px;
+        }
+
+        .input{
+            height: 50px;
+            background-color: white;
+        }
+
+        
+
+
     }
+
 }
