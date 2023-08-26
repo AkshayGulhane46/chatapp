@@ -4,7 +4,7 @@ const Chats = () => {
   return (
     <div className='chats'>
       <div className='userChat'>
-        <img src='' alt='image'/>
+        <img src='' alt='image1'/>
         <div className='userChatInfo'>
           <span>joggny</span>
           <p> Gello </p>

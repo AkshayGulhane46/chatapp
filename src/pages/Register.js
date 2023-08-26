@@ -5,50 +5,67 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
 import {auth , storage } from "../firebase"
 
-function Register() {
-  const [err,setErr] = useState(false);
-    const handleSubmit = async (e) =>{ 
-    console.log("under handleSubmit");
+import { doc, setDoc } from "firebase/firestore"; 
+
+import { db  } from '../firebase';
+
+import { ref , uploadBytesResumable, getDownloadURL  } from 'firebase/storage';
+import { useNavigate } from 'react-router-dom';
+
+const Register = () => {
+  const [err, setErr] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
-    console.log(e.target[0].value);
     const displayName = e.target[0].value;
     const email = e.target[1].value;
     const password = e.target[2].value;
-    const file = e.target[3].files[0]; // to get the profile pic
+    const file = e.target[3].files[0];
 
+    try {
+      //Create user
+      const res = await createUserWithEmailAndPassword(auth, email, password);
 
-try{
-  const res = await createUserWithEmailAndPassword(auth, email, password)
-  
-const storageRef = ref(storage, displayName);
+      //Create a unique image name
+      const date = new Date().getTime();
+      const storageRef = ref(storage, `${displayName + date}`);
 
-const uploadTask = uploadBytesResumable(storageRef, file);
+      await uploadBytesResumable(storageRef, file).then(() => {
+        getDownloadURL(storageRef).then(async (downloadURL) => {
+          try {
+            //Update profile
+            await updateProfile(res.user, {
+              displayName,
+              photoURL: downloadURL,
+            });
+            //create user on firestore
+            await setDoc(doc(db, "users", res.user.uid), {
+              uid: res.user.uid,
+              displayName,
+              email,
+              photoURL: downloadURL,
+            });
 
-uploadTask.on(
-
-  (error) => {
-    // Handle unsuccessful uploads
-    setErr(true);
-  }, 
-  () => {
-    // Handle successful uploads on complete
-    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-    getDownloadURL(uploadTask.snapshot.ref).then(async(downloadURL) => {
-      await updateProfile(res.user);
-      console.log('File available at', downloadURL,{
-        displayName, 
-        photoURL : downloadURL 
+            //create empty user chats on firestore
+            await setDoc(doc(db, "userChats", res.user.uid), {});
+            navigate("/");
+        
+          } catch (err) {
+            console.log(err);
+            setErr(true);
+            setLoading(false);
+          }
+        });
       });
-    });
-  }
-);
+    } catch (err) {
+      setErr(true);
+      setLoading(false);
+    }
+  };
 
-
-}catch(err){
-  setErr(true);
-}
-  
-  }
   return (
     <>
 
