@@ -1,4 +1,5 @@
 .formContainer{
+    background-image: url('img/background.jpg');
     background-color: blue;
     height: 100vh;
     display: flex;
@@ -20,33 +21,38 @@
     }
 
     .title{
-        color: rgb(0, 0, 0);
+        color: #9C27B0;
         font-weight: bold;
-        font-size: small;
+        font-size: xx-large;
+        font-weight: 900;
     }
 
         form{
             display: flex;
             flex-direction: column;
             gap: 15px;
-
+            align-items: center;
             input{
                 padding: 15px;
-                border-bottom: 3px;
-                border:none;
+                border:1px solid #82127b;
+                border-radius: 10px;
                 border-bottom: 1px solid black;
+                
+
                 & ::placeholder{
                     color: rgb(175, 175, 175);
                 } 
             }
 
             button{
-                background-color: black ;
-                color: white;
-                padding: 10px;
-                font-weight: bold;
                 border: none;
+                padding: 10px 15px;
+                background-color: #fdc3f9;
+                color: black;
                 cursor: pointer;
+                font-weight: 600;
+                border-radius: 10px;
+                width: 140px;
             }
             img{
                 width: 12px;
@@ -72,37 +78,44 @@
 
 .home{
     background-color: beige;
+    background-image: url('img/background.jpg');
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
 
     .container{
-        border: 1px solid black;
-        width: 65%;
-        height: 50%;
+        width: 80%;
+        height: 90%;
         border-radius: 5px;
         display: flex;
         overflow: hidden;
+        box-shadow: 1px -1px 7px 0px #770101;
+
+        
     }
 
     .sidebar{
         flex: 1;
         border-right: 1px solid black;
-        background-color: yellow;
+        background-color: #230121;
 
         .search{
             border-bottom: 1px solid grey;
-            .searchform{
+            .searchForm{
                 padding: 10px;
+                border: 0.1px solid rgba(255, 255, 255, 0.573);
+                margin: 10px;
+                border-radius: 10px;
                 input{
                     background-color: transparent;
                     border: none;
                     color: white;
+                    font-size: 16px;
+                    font-weight: bold;
                     outline: none;
-                    border-bottom: 1px solid black;
                     &::placeholder{
-                        color: lightgray;
+                        color: rgba(255, 255, 255, 0.381);
                     }
                 }
         }
@@ -111,13 +124,16 @@
         .userChat{
             padding: 10px;
             display: flex;
-            align-items:center;
+            align-items: center;
             gap: 10px;
             color: white;
             cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+            background-color: #330d32;
 
-            &::hover{
-                background-color: green($color: #000000)
+            &:hover{
+                background-color: black
             }
 
             img{
@@ -131,41 +147,64 @@
                 span{font-size: 18px;
                 font-weight: bolder;}
                 p{font-size: 14px; color: lightgray;}
+               
             }
         }
 
         .navbar{
             display: flex;
-            background-color: lightcoral;
+            background-color: #230121;
             padding: 10px;
             height: 50px;
-            justify-content: space-between;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: space-around;
+            justify-content: flex-start;
         }
 
         .logo{
             font-weight: bold;
+            display: none;
         }
 
         .user{
             display: flex;
             gap: 10px;
+            margin-left: 10px;
+            color: #feebfd;
+            font-size: large;
+            height: 20px;
+            font-weight: bolder;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-content: center;
+            align-items: center;
 
             img{
-                background-color: green;
-                height: 24px;
-                width: 24px;
+                background-color: rgb(0, 0, 0);
+                height: 50px;
+                width: 50px;
                 border-radius: 50%;
                 object-fit: cover;
             }
 
             button{
-                background-color: red;
+                background-color: #ce05c2;
                 font-weight: bold;
+                border-radius: 10px;
+                height: 40px;
+                width: 90px;
                 border: none;
                 cursor: pointer;
                 color: white;
 
+                &:hover{
+                    background-color: #170016;
+                }
+
             }
+
+           
         }
 
   
@@ -175,12 +214,15 @@
         flex:2;
         .chatInfo{
             height: 50px;
-            background-color: blue;
+            background-color: #070007;
             display: flex;
             align-items: center;
             justify-content: space-between;
             padding: 10px;
             color: lightgrey;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
         }
 
         .chatIcons{
@@ -194,14 +236,13 @@
         }
         }
         .messages{
-            background-color: lightblue;
+            background-color: #07000787;
             padding: 10px;
             height: calc(100% - 160px);
             overflow: scroll;
             scroll-behavior: smooth;
-          
-          
-
+            overflow: scroll;
+            
             .message{
                 display: flex;
                 gap: 20px;
@@ -225,7 +266,7 @@
                     gap: 10px;
 
                     p{
-                        background-color: white;
+                        background-color: #fdbbf9;
                         padding: 10px 20px;
                         border-radius: 0px 10px 10px 10px;
                         max-width: max-content;
@@ -242,7 +283,7 @@
                     }
 
                     p{
-                        background-color: blue;
+                        background-color:#82127b;
                         color: white;
                         border-radius: 10px 0px 10px 10px;
                     }
@@ -252,19 +293,24 @@
 
         .input{
             height: 50px;
-            background-color: white;
+            background-color: #070007;
             padding: 10px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            border-top: 1px solid #ffffff3d;
+            
 
             input{
                 width: 100%;
                 border: none;
                 outline: none;
                 font-size: larger;
+                color: white;
+                background-color: #070007;
+                
                 &::placeholder{
-                    color: lightgray;
+                    color: rgba(255, 255, 255, 0.594);
                 }
             }
 
@@ -283,9 +329,12 @@
                 button{
                     border: none;
                     padding: 10px 15px;
-                    background-color: blue;
-                    color: white;
+                    background-color: #fdc3f9;
+                    color: black;
                     cursor: pointer;
+                    font-weight: 600;
+                    border-radius: 10px;
+                    width: 140px;
                 }
             }
 
@@ -296,4 +345,13 @@
 
     }
 
+    ::-webkit-scrollbar {
+        width: 1px;
+        display: none;       
+    }
+
 }
+
+
+  
+ 

@@ -10,7 +10,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { db  } from '../firebase';
 
 import { ref , uploadBytesResumable, getDownloadURL  } from 'firebase/storage';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Register = () => {
   const [err, setErr] = useState(false);
@@ -71,25 +71,25 @@ const Register = () => {
 
     <div className="formContainer">
         <div className="formWrapper">
-        <span className="logo"> Free Chat</span>
+      
         <span className="title">Register</span>
        
             <form onSubmit={handleSubmit}>
-                <input type="text" placeholder="display name"/>
+                <input type="text" placeholder="Your Name"/>
                 
-                <input type="email" placeholder="email"/>
+                <input type="email" placeholder="Email"/>
                 
-                <input type="password" placeholder="password"/>
+                <input type="password" placeholder="Password"/>
                 
                 <input style={{display:"none"}} type="file" id="file"/>
                 <label  htmlFor="file" > 
                 <img src={add}/>
                 <span> Add your Image </span> </label>
-                <button>Sign Up</button>
-                {err && <span>Something went wrong </span>}
+                <button>Create Account</button>
+                {err && <span style={{color:'red'}}>Something went wrong </span>}
 
             </form>
-            <p> Do you have an account ? login</p>
+            <p> Do you have an account ? <Link to="/login">login</Link></p>
 
         </div>
     </div>
