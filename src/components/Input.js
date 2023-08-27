@@ -21,8 +21,8 @@ const Input = () => {
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
 
-  const handleSend = async () => {
-     
+  const handleSend = async (e) => {
+    e.preventDefault();
       await updateDoc(doc(db, "chats", data.chatId), {
         messages: arrayUnion({
           id: uuid(),
@@ -60,7 +60,6 @@ const Input = () => {
       />
       <div className="send">
         <img src={Attach} alt="" />
-
         <button onClick={handleSend}>Send</button>
       </div>
     </div>
