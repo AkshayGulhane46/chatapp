@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import Messages from './Messages'
+import Input from './Input'
+import camera from '../img/camera.png'
+import { ChatContext } from '../context/ChatContext'
 
 const Chat = () => {
+  const {data}  = useContext(ChatContext);
   return (
     <div className='chat'>
-      Chat
+      <div className='chatInfo'>
+        <span> {data.user.displayName} </span>
+      </div>
+      <Messages/>
+      <Input/>
     </div>
   )
 }
