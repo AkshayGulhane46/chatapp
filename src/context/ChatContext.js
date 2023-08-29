@@ -32,6 +32,7 @@ import {
     };
   
     const [state, dispatch] = useReducer(chatReducer, INITIAL_STATE);
+    // use reducer is used when we need to 
   
     return (
       <ChatContext.Provider value={{ data:state, dispatch }}>
