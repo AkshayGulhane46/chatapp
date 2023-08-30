@@ -19,15 +19,15 @@ function App() {
   }
 
   return (
-    <BrowserRouter>
+    <BrowserRouter >
       <Routes>
-        <Route path='/'>
+        <Route path='/chatapp'>
 
         <Route index element={<ProtectedRoute>
           <Home/>
         </ProtectedRoute>}/> 
-        <Route path='/login' element={<Login/>} />
-        <Route path='/register' element={<Register/>}/>
+        <Route path='chatapp/login' element={<Login/>} />
+        <Route path='chatapp/register' element={<Register/>}/>
 
 
         </Route>
