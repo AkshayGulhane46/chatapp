@@ -3,6 +3,7 @@ import React, { useContext } from 'react'
 import { auth } from '../firebase'
 import { AuthContext } from '../context/AuthContext'
 
+// Navbar component which shows users name and photo URL
 const Navbar = () => {
   const {currentUser} = useContext(AuthContext);
   return (

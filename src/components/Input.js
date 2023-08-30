@@ -21,6 +21,7 @@ const Input = () => {
   const { currentUser } = useContext(AuthContext);
   const { data } = useContext(ChatContext);
 
+  // OnClick on send Button
   const handleSend = async (e) => {
     e.preventDefault();
       await updateDoc(doc(db, "chats", data.chatId), {
@@ -32,7 +33,7 @@ const Input = () => {
         }),
       });
     
-
+    // Update docs under userChats using updateDoc command 
     await updateDoc(doc(db, "userChats", currentUser.uid), {
       [data.chatId + ".lastMessage"]: {
         text,
@@ -55,6 +56,7 @@ const Input = () => {
       <input
         type="text"
         placeholder="New message..."
+        required = {true}
         onChange={(e) => setText(e.target.value)}
         value={text}
       />
